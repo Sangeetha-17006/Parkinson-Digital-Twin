@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Parkinson's Digital Twin</title>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+<header class="main-header">
+    <div class="header-content">
+        <div>
+            <h1>Parkinson's Digital Twin</h1>
+            <p>AI-powered prediction and model evaluation dashboard</p>
+        </div>
+
+        <span class="status-badge">Digital Twin</span>
+    </div>
+</header>
+
+<main class="dashboard">
+
+    <!-- INTRODUCTION -->
+    <section class="welcome-section">
+        <h2>Dashboard Overview</h2>
+        <p>
+            Explore model predictions, prediction history, and evaluation
+            results from verified actual labels.
+        </p>
+    </section>
+
+    <!-- STATISTICS -->
+    <section class="statistics-grid">
+
+        <article class="stat-card">
+            <span class="stat-label">Total Predictions</span>
+            <h2 id="totalPredictions">0</h2>
+        </article>
+
+        <article class="stat-card">
+            <span class="stat-label">Parkinson's Detected</span>
+            <h2 id="positivePredictions">0</h2>
+        </article>
+
+        <article class="stat-card">
+            <span class="stat-label">No Parkinson's Detected</span>
+            <h2 id="negativePredictions">0</h2>
+        </article>
+
+    </section>
+
+    <p id="statisticsStatus" class="status-message" role="status">
+        Loading statistics...
+    </p>
+
+    <!-- PREDICTION FORM -->
+    <section class="panel">
+        <div class="section-heading">
+            <div>
+                <h2>Make a Prediction</h2>
+                <p>Enter the 22 voice measurement features.</p>
+            </div>
+        </div>
+
+        <form id="predictionForm">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="MDVP_Fo_Hz">MDVP Fo (Hz)</label>
+                    <input type="number" step="any" id="MDVP_Fo_Hz"
+                           name="MDVP_Fo_Hz" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="MDVP_Fhi_Hz">MDVP Fhi (Hz)</label>
+                    <input type="number" step="any" id="MDVP_Fhi_Hz"
+                           name="MDVP_Fhi_Hz" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="MDVP_Flo_Hz">MDVP Flo (Hz)</label>
+                    <input type="number" step="any" id="MDVP_Flo_Hz"
+                           name="MDVP_Flo_Hz" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="MDVP_Jitter_percent">MDVP Jitter (%)</label>
+                    <input type="number" step="any" id="MDVP_Jitter_percent"
+                           name="MDVP_Jitter_percent" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="MDVP_Jitter_Abs">MDVP Jitter (Abs)</label>
+                    <input type="number" step="any" id="MDVP_Jitter_Abs"
+                           name="MDVP_Jitter_Abs" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="MDVP_RAP">MDVP RAP</label>
+                    <input type="number" step="any" id="MDVP_RAP"
+                           name="MDVP_RAP" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="MDVP_PPQ">MDVP PPQ</label>
+                    <input type="number" step="any" id="MDVP_PPQ"
+                           name="MDVP_PPQ" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="Jitter_DDP">Jitter DDP</label>
+                    <input type="number" step="any" id="Jitter_DDP"
+                           name="Jitter_DDP" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="MDVP_Shimmer">MDVP Shimmer</label>
+                    <input type="number" step="any" id="MDVP_Shimmer"
+                           name="MDVP_Shimmer" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="MDVP_Shimmer_dB">MDVP Shimmer (dB)</label>
+                    <input type="number" step="any" id="MDVP_Shimmer_dB"
+                           name="MDVP_Shimmer_dB" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="Shimmer_APQ3">Shimmer APQ3</label>
+                    <input type="number" step="any" id="Shimmer_APQ3"
+                           name="Shimmer_APQ3" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="Shimmer_APQ5">Shimmer APQ5</label>
+                    <input type="number" step="any" id="Shimmer_APQ5"
+                           name="Shimmer_APQ5" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="MDVP_APQ">MDVP APQ</label>
+                    <input type="number" step="any" id="MDVP_APQ"
+                           name="MDVP_APQ" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="Shimmer_DDA">Shimmer DDA</label>
+                    <input type="number" step="any" id="Shimmer_DDA"
+                           name="Shimmer_DDA" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="NHR">NHR</label>
+                    <input type="number" step="any" id="NHR"
+                           name="NHR" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="HNR">HNR</label>
+                    <input type="number" step="any" id="HNR"
+                           name="HNR" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="RPDE">RPDE</label>
+                    <input type="number" step="any" id="RPDE"
+                           name="RPDE" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="DFA">DFA</label>
+                    <input type="number" step="any" id="DFA"
+                           name="DFA" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="spread1">Spread 1</label>
+                    <input type="number" step="any" id="spread1"
+                           name="spread1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="spread2">Spread 2</label>
+                    <input type="number" step="any" id="spread2"
+                           name="spread2" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="D2">D2</label>
+                    <input type="number" step="any" id="D2"
+                           name="D2" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="PPE">PPE</label>
+                    <input type="number" step="any" id="PPE"
+                           name="PPE" required>
+                </div>
+
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" id="predictButton">
+                    Predict
+                </button>
+
+                <button type="reset" id="resetButton" class="secondary-button">
+                    Clear Form
+                </button>
+            </div>
+
+        </form>
+
+        <div id="predictionResult"
+             class="prediction-result"
+             role="status"
+             aria-live="polite"
+             hidden>
+        </div>
+    </section>
+
+    <!-- DYNAMIC CONFUSION MATRIX -->
+    <section class="panel">
+
+        <div class="section-heading">
+            <div>
+                <h2>Model Evaluation</h2>
+                <p>
+                    Confusion matrix based on predictions with verified
+                    actual labels.
+                </p>
+            </div>
+
+            <button type="button" id="refreshEvaluationButton"
+                    class="secondary-button">
+                Refresh Evaluation
+            </button>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="confusion-matrix">
+                <thead>
+                    <tr>
+                        <th>Actual / Predicted</th>
+                        <th>No Parkinson's (0)</th>
+                        <th>Parkinson's (1)</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th>No Parkinson's (0)</th>
+                        <td id="tnCount">0</td>
+                        <td id="fpCount">0</td>
+                    </tr>
+
+                    <tr>
+                        <th>Parkinson's (1)</th>
+                        <td id="fnCount">0</td>
+                        <td id="tpCount">0</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p id="matrixStatus" class="status-message" role="status">
+            Loading evaluation results...
+        </p>
+
+        <div class="evaluation-metrics">
+
+            <article class="metric-card">
+                <span>Accuracy</span>
+                <strong id="accuracyValue">—</strong>
+            </article>
+
+            <article class="metric-card">
+                <span>Precision</span>
+                <strong id="precisionValue">—</strong>
+            </article>
+
+            <article class="metric-card">
+                <span>Recall</span>
+                <strong id="recallValue">—</strong>
+            </article>
+
+            <article class="metric-card">
+                <span>F1 Score</span>
+                <strong id="f1Value">—</strong>
+            </article>
+
+        </div>
+
+        <p id="evaluatedCount" class="evaluated-count">
+            Evaluated predictions: 0
+        </p>
+
+        <p class="information-note">
+            Metrics are calculated only from saved evaluations.
+            They may be misleading when based on very few examples.
+        </p>
+
+    </section>
+
+    <!-- PREDICTION HISTORY -->
+    <section class="panel">
+
+        <div class="section-heading">
+            <div>
+                <h2>Prediction History</h2>
+                <p>Previously saved model predictions.</p>
+            </div>
+
+            <button type="button" id="refreshHistoryButton"
+                    class="secondary-button">
+                Refresh History
+            </button>
+        </div>
+
+        <p id="historyStatus" class="status-message" role="status">
+            Loading prediction history...
+        </p>
+
+        <div class="table-wrapper">
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Prediction</th>
+                        <th>Date and Time</th>
+                    </tr>
+                </thead>
+
+                <tbody id="historyTableBody">
+                    <tr>
+                        <td colspan="3">Loading predictions...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="main-footer">
+    <p>
+        Parkinson's Digital Twin | AI-based research project
+    </p>
+
+    <p>
+        This prototype is for research and educational purposes only.
+        It is not a medical diagnosis tool.
+    </p>
+</footer>
+
+<script src="./script.js"></script>
+
+</body>
+</html>
+

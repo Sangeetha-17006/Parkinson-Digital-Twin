@@ -1,0 +1,469 @@
+
+/* ===== Global Styles ===== */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f3f6fc;
+    color: #263247;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* ===== Header ===== */
+.main-header {
+    background: linear-gradient(135deg, #173b72, #2865b8);
+    color: white;
+    padding: 30px 24px;
+    box-shadow: 0 4px 15px rgba(26, 55, 100, 0.15);
+}
+
+.header-content {
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-content h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.header-content p {
+    margin: 7px 0 0;
+    color: #e1ebff;
+    font-size: 14px;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #d9fbe8;
+    color: #137447;
+    border-radius: 25px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* ===== Main Dashboard ===== */
+.dashboard {
+    max-width: 1250px;
+    margin: 32px auto;
+    padding: 0 22px;
+}
+
+.welcome-section {
+    margin-bottom: 24px;
+}
+
+.welcome-section h2 {
+    margin: 0 0 6px;
+    color: #183c70;
+    font-size: 25px;
+}
+
+.welcome-section p {
+    margin: 0;
+    color: #68768b;
+}
+
+/* ===== Statistics Cards ===== */
+.statistics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin: 22px 0 30px;
+}
+
+.stat-card {
+    position: relative;
+    overflow: hidden;
+    background: white;
+    padding: 25px;
+    border-radius: 13px;
+    border: 1px solid #e5eaf3;
+    box-shadow: 0 5px 18px rgba(32, 61, 105, 0.06);
+}
+
+.stat-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background: #3978d4;
+}
+
+.stat-card:nth-child(2)::before {
+    background: #e09a42;
+}
+
+.stat-card:nth-child(3)::before {
+    background: #24a477;
+}
+
+.stat-label {
+    display: block;
+    color: #69778c;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.stat-card h3,
+.stat-card .stat-value {
+    color: #1c3f74;
+    font-size: 34px;
+    line-height: 1.2;
+    margin: 0;
+    font-weight: 750;
+}
+
+/* ===== Panels ===== */
+.panel {
+    background: white;
+    padding: 28px;
+    margin-bottom: 28px;
+    border: 1px solid #e4eaf3;
+    border-radius: 14px;
+    box-shadow: 0 5px 20px rgba(32, 61, 105, 0.055);
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.section-heading h2 {
+    color: #1c427a;
+    font-size: 22px;
+    margin: 0;
+}
+
+.panel > p {
+    color: #718096;
+    margin: 5px 0 22px;
+    font-size: 14px;
+}
+
+.status-message {
+    color: #64748b;
+    font-size: 13px;
+    margin: 12px 0 0;
+}
+
+/* ===== Prediction Form ===== */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 13px;
+    color: #344967;
+    margin-bottom: 7px;
+}
+
+.form-group input {
+    width: 100%;
+    min-width: 0;
+    height: 44px;
+    padding: 10px 12px;
+    background: #fbfcff;
+    border: 1px solid #ccd7e6;
+    border-radius: 7px;
+    color: #263247;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:hover {
+    border-color: #8aa9d4;
+}
+
+.form-group input:focus {
+    border-color: #3478d4;
+    box-shadow: 0 0 0 3px rgba(52, 120, 212, 0.12);
+    background: white;
+}
+
+.form-group input::placeholder {
+    color: #a0aec0;
+}
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+/* ===== Buttons ===== */
+button {
+    border: none;
+    border-radius: 7px;
+    padding: 11px 19px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: transform 0.15s, background 0.2s;
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#predictButton {
+    background: #2867bd;
+    color: white;
+}
+
+#predictButton:hover {
+    background: #1d5098;
+}
+
+.secondary-button,
+#resetButton {
+    background: #edf2fa;
+    color: #2c4e7d;
+    border: 1px solid #d8e2f0;
+}
+
+.secondary-button:hover,
+#resetButton:hover {
+    background: #e0e9f7;
+}
+
+/* ===== Prediction Result ===== */
+.prediction-result {
+    margin-top: 22px;
+    padding: 18px;
+    border-radius: 9px;
+    background: #f0f5ff;
+    border: 1px solid #d7e5fb;
+    color: #244d86;
+    overflow-wrap: anywhere;
+}
+
+.prediction-result:empty {
+    display: none;
+}
+
+/* ===== Tables ===== */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 18px;
+}
+
+.history-table,
+.confusion-matrix {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+.history-table th,
+.history-table td,
+.confusion-matrix th,
+.confusion-matrix td {
+    padding: 14px 16px;
+    border: 1px solid #e4eaf3;
+    text-align: left;
+    font-size: 13px;
+}
+
+.history-table thead th,
+.confusion-matrix thead th {
+    background: #edf3fc;
+    color: #294c7e;
+    font-weight: 700;
+}
+
+.history-table tbody tr:nth-child(even) {
+    background: #f9fbfe;
+}
+
+.history-table tbody tr:hover {
+    background: #eff5ff;
+}
+
+.confusion-matrix {
+    max-width: 650px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.confusion-matrix th,
+.confusion-matrix td {
+    text-align: center;
+}
+
+.confusion-matrix tbody td {
+    font-size: 19px;
+    font-weight: 700;
+    color: #234e88;
+    background: #f8faff;
+}
+
+/* ===== Evaluation Metrics ===== */
+.evaluation-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.metric-card {
+    background: #f7f9fe;
+    border: 1px solid #e3eaf5;
+    padding: 20px 15px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.metric-card h3 {
+    margin: 0 0 8px;
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 600;
+}
+
+.metric-card p {
+    margin: 0;
+    color: #2258a0;
+    font-size: 25px;
+    font-weight: 750;
+}
+
+.evaluated-count {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 7px 12px;
+    background: #eef4ff;
+    color: #2d5c9e;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.information-note {
+    background: #fff8e8;
+    border-left: 4px solid #e6a23c;
+    padding: 15px 17px;
+    margin-top: 22px;
+    border-radius: 5px;
+    color: #775b24;
+    font-size: 13px;
+}
+
+/* ===== Footer ===== */
+.main-footer {
+    text-align: center;
+    padding: 24px;
+    color: #7a879a;
+    font-size: 13px;
+    border-top: 1px solid #e5eaf2;
+    margin-top: 35px;
+}
+
+/* ===== Responsive Layout ===== */
+@media (max-width: 800px) {
+    .dashboard {
+        margin: 22px auto;
+        padding: 0 14px;
+    }
+
+    .header-content {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .header-content h1 {
+        font-size: 25px;
+    }
+
+    .statistics-grid {
+        gap: 12px;
+    }
+
+    .stat-card {
+        padding: 18px 14px;
+    }
+
+    .stat-card h3,
+    .stat-card .stat-value {
+        font-size: 27px;
+    }
+
+    .evaluation-metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .panel {
+        padding: 20px 16px;
+    }
+}
+
+@media (max-width: 540px) {
+    .statistics-grid,
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .evaluation-metrics {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .history-table th,
+    .history-table td {
+        padding: 10px;
+    }
+}
+
