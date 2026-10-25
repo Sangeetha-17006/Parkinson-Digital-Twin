@@ -1,5 +1,5 @@
 
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://parkinson-digital-twin.onrender.com";
 
 const FEATURE_NAMES = [
     "MDVP_Fo_Hz",
